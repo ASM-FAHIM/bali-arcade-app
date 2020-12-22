@@ -3,8 +3,10 @@ import 'package:bali_arcade/Screens/BaliArcade.dart';
 import 'package:bali_arcade/Screens/Parking.dart';
 import 'package:bali_arcade/Screens/cart_screen.dart';
 import 'package:bali_arcade/Screens/cineplex.dart';
+import 'package:bali_arcade/Screens/entertainment.dart';
 import 'package:bali_arcade/Screens/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'AllCategory.dart';
 import 'dart:async';
@@ -436,7 +438,7 @@ class _DashBoardState extends State<DashBoard> {
                                     allCat2,
                                     2,
                                     allCatFood,
-                                    lan ? "Shop Category" : "শপ কেটাগর‍ি"),
+                                    lan ? "Shop Category" : "শপ কেটাগরি"),
                               );
                               Navigator.push(context, route);
                               //Navigator.pushNamed(context, FoodCourtCategory.id);
@@ -594,27 +596,25 @@ class _DashBoardState extends State<DashBoard> {
                         height: 90,
                         child: RaisedButton(
                           elevation: 16,
-                          splashColor: Color(0xFF680068),
+                          splashColor: Color(0xFF660066),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0),
                               side: BorderSide.none),
                           onPressed: () {
                             setState(() {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => BaliArcadePage(),
-                              ));
                               isPressed2 = null;
                               isCardPressed = [
                                 false,
                                 false,
                                 false,
                                 false,
-                                false,
-                                true
+                                true,
+                                false
                               ];
+                              Navigator.push(context, MaterialPageRoute(builder: (c)=>Entertainment()));
                             });
                           },
-                          color: isPressed2 ?? isCardPressed[5]
+                          color: isCardPressed[5]
                               ? Color(0xFF660066)
                               : Colors.grey[800],
                           textColor: Colors.white,
@@ -622,19 +622,76 @@ class _DashBoardState extends State<DashBoard> {
                             children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.only(
-                                    top: 2.0, bottom: 2, right: 2, left: 2),
+                                    top: 12.0, bottom: 8, right: 12, left: 12),
                                 child: SizedBox(
-                                    height: 80,
-                                    width: 100,
-                                    child: Image.asset(
-                                      'images/logo_white.png',
+                                    height: 38,
+                                    width: 50,
+                                    child: 
+                                    Image.asset(
+                                      'images/entertainment.png',
                                       color: Colors.white,
-                                    )),
+                                    ),
+                                ),
                               ),
+                              Text(
+                                lan
+                                    ? 'Entertainment'
+                                    : 'এন্টারটেইনমেন্ট',
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white),
+                              )
                             ],
                           ),
                         ),
                       ),
+                      // Container(
+                      //   width: 110,
+                      //   height: 90,
+                      //   child: RaisedButton(
+                      //     elevation: 16,
+                      //     splashColor: Color(0xFF680068),
+                      //     shape: RoundedRectangleBorder(
+                      //         borderRadius: BorderRadius.circular(12.0),
+                      //         side: BorderSide.none),
+                      //     onPressed: () {
+                      //       setState(() {
+                      //         Navigator.of(context).push(MaterialPageRoute(
+                      //           builder: (context) => BaliArcadePage(),
+                      //         ));
+                      //         isPressed2 = null;
+                      //         isCardPressed = [
+                      //           false,
+                      //           false,
+                      //           false,
+                      //           false,
+                      //           false,
+                      //           true
+                      //         ];
+                      //       });
+                      //     },
+                      //     color: isPressed2 ?? isCardPressed[5]
+                      //         ? Color(0xFF660066)
+                      //         : Colors.grey[800],
+                      //     textColor: Colors.white,
+                      //     child: Column(
+                      //       children: <Widget>[
+                      //         Padding(
+                      //           padding: const EdgeInsets.only(
+                      //               top: 2.0, bottom: 2, right: 2, left: 2),
+                      //           child: SizedBox(
+                      //               height: 80,
+                      //               width: 100,
+                      //               child: Image.asset(
+                      //                 'images/logo_white.png',
+                      //                 color: Colors.white,
+                      //               )),
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                   SizedBox(
